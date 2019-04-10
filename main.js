@@ -15,46 +15,14 @@ var addButton = e('#id-button-add')
 addButton.addEventListener('click', function() {
     var todoInput = e('#id-input-todo')
     var todo = todoInput.value
-    // var todoContainer = e('#id-div-container')
-    // var t = templateTodo(todo)
-    // todoContainer.insertAdjacentHTML('beforeBegin', 'gua' + t)
-    // todoContainer.insertAdjacentHTML('beforeend', t)
     insertTodo(todo, false)    
     saveTodos()
 })
 var insertTodo = function(todo, done) {
     var todoContainer = e('#id-div-container')
     var t = templateTodo(todo, done)
-    // todoContainer.insertAdjacentHTML('beforeBegin', 'gua' + t)
     todoContainer.insertAdjacentHTML('beforeend', t)
 }
-// var todo1 = {
-//     content: 'todo1',
-//     done: false
-// }
-// var todo2 = {
-//     content: 'todo1',
-//     done: false
-// }
-
-// var todos = [
-//     todo1,
-//     todo2,
-// ]
-// var strTodos = JSON.stringify(todos)
-
-// var todos = JSON.parse(localStorage.gua)
-
-// var todos = [
-//     {
-//         content: 'todo1',
-//         done: false,
-//     },
-//     {
-//         content: 'todo2',
-//         done: false,
-//     },
-// ]
 
 var templateTodo = function(todo, done) {
     var status = ''
@@ -106,27 +74,17 @@ var load = function() {
 
 // 定义一个函数, 把页面上的所有 todo 用 save 保存
 var saveTodos = function() {
-    // 1 先选出所有的 content 标签
-    // 2 取出 todo
-    // 3 添加到一个 数组里
-    // 4 保存数组
-
-    // 1 先选出所有的 content 标签
     var contents = es('.todo-content')
     var todos = []
     for (var i = 0; i < contents.length; i++) {
-        // 2 取出 todo
         var c = contents[i]
         var done = c.parentElement.classList.contains('done')
         var todo = {
             done ,
             content: c.innerHTML,
         }
-        // var todo = c.innerHTML
-        // 3 添加到一个 数组里
         todos.push(todo)
     }
-    // 4 保存数组
     save(todos)
 }
 var loadTodos = function() {
