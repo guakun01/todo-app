@@ -36,8 +36,10 @@ var templateTodo = function(todo, done) {
     }
     var t = `
         <div class="todo-cell ${status}">
-            <button class="todo-done">完成</button>
-            <button class="todo-delete">删除</button>
+            <div class="actions">
+                <span class="todo-done">完成</span>
+                <span class="todo-delete">删除</span>
+            </div>
             <span class='todo-content' contenteditable="true">${todo}</span>
         </div>
         `
@@ -49,12 +51,12 @@ todoContainer.addEventListener('click', function(event) {
     var target = event.target
     if(target.classList.contains('todo-done')) {
         log('点击了完成按钮')
-        var todoDiv = target.parentElement
+        var todoDiv = target.parentElement.parentElement
         toggleClass(todoDiv, 'done')
         saveTodos()
     } else if(target.classList.contains('todo-delete')) {
         log('点击了删除按钮', target)
-        var todoDiv = target.parentElement
+        var todoDiv = target.parentElement.parentElement
         todoDiv.remove()
         saveTodos()
     }

@@ -12,14 +12,21 @@
             text-decoration: line-through;
         }
     </style>
+    <link rel="stylesheet" href="./main.css">
     
 </head>
 <body>
-    <div class="todo-form">
-        <input type="text" id="id-input-todo">
-        <button id="id-button-add">添加</button>
-    </div>
-    <div id="id-div-container"> 
+    <h1>瓜坤的任务管理器</h1>
+    
+    <div class="container">
+
+        <div class="todo-form">
+            <input type="text" id="id-input-todo">
+            <button id="id-button-add">添加</button>
+        </div>
+
+        <div id="id-div-container" class="task-list">
+        </div>
     </div>
     <script src="./main.js"></script>
 </body>
