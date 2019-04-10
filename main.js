@@ -15,8 +15,13 @@ var addButton = e('#id-button-add')
 addButton.addEventListener('click', function() {
     var todoInput = e('#id-input-todo')
     var todo = todoInput.value
+    if (!todo) {
+        alert('不许添加一个空的进来！！！')
+        return
+    }
     insertTodo(todo, false)    
     saveTodos()
+    todoInput.value = ''
 })
 var insertTodo = function(todo, done) {
     var todoContainer = e('#id-div-container')
